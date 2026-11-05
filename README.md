@@ -48,3 +48,5 @@ python3 tools/gen_soft_patterns.py --num_patterns 1 --outdir build/generated-sof
 - [Synthesis](implementation/synthesis/) contains the submitted mapped Verilog and the design-specific clock and interface constraints. The clock target is 5 ns. Configure libraries and operating conditions in the authorized synthesis environment.
 - [Post-route](implementation/postroute/) contains the connectivity netlist exported after routing. The mapped and post-route netlists reference external standard-cell modules. Select one netlist **instead of** `rtl/bch.v` when simulating in an environment with authorized cell models.
 - The submitted synthesis report gives a cell area of **587,717.96** in the tool's area units. The archived post-route timing summaries report **+0.563 ns** setup slack and **+1.245 ns** hold slack for the all-path groups, with zero violating paths in both summaries. These are tool estimates from the submitted run.
+
+The [timing archive](docs/timing-archive.md) identifies the paired design-specific SDF exports, their hashes, and the requirements for a separate gate-level run.
