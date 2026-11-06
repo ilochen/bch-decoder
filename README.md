@@ -1,5 +1,7 @@
 # Reconfigurable BCH Decoder
 
+[![Validation](https://github.com/ilochen/bch-decoder/actions/workflows/check.yml/badge.svg)](https://github.com/ilochen/bch-decoder/actions/workflows/check.yml)
+
 A configurable hard/soft BCH decoder for BCH(63,51), BCH(255,239), and BCH(1023,983). The datapath combines byte-wide syndrome accumulation, inversionless Berlekamp–Massey, and eight-way Chien search. Four Chase candidates reuse syndrome computations; a two-phase schedule shares GF multipliers, and mode-dependent clock gating controls unused candidate state.
 
 [Interactive architecture and design decisions](https://ilochen.github.io/projects/bch-decoder/)
@@ -50,3 +52,9 @@ python3 tools/gen_soft_patterns.py --num_patterns 1 --outdir build/generated-sof
 - The submitted synthesis report gives a cell area of **587,717.96** in the tool's area units. The archived post-route timing summaries report **+0.563 ns** setup slack and **+1.245 ns** hold slack for the all-path groups, with zero violating paths in both summaries. These are tool estimates from the submitted run.
 
 The [timing archive](docs/timing-archive.md) identifies the paired design-specific SDF exports, their hashes, and the requirements for a separate gate-level run.
+
+## Validation snapshot
+
+All six RTL fixtures passed: three code lengths in hard and Chase modes. Independent finite-field and architectural tests also pass.
+
+Rechecked on 6 November 2026. Simulation results establish the covered functional behavior; physical implementation measurements are identified separately in the documentation.
